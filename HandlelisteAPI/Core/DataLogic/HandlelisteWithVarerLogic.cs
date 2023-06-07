@@ -1,9 +1,10 @@
-﻿using HandlelisteData;
+﻿using HandlelisteAPI.Core.DTO;
+using HandlelisteData;
 using HandlelisteDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace HandlelisteAPI.DataLogic
+namespace HandlelisteAPI.Core.DataLogic
 {
     public class HandlelisteWithVarerLogic : DataLogic
     {

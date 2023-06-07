@@ -1,4 +1,5 @@
-﻿using HandlelisteAPI.DataLogic;
+﻿using HandlelisteAPI.Core.DataLogic;
+using HandlelisteAPI.Core.DTO;
 using HandlelisteDomain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

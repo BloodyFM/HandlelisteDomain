@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandlelisteData", "Handleli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandlelisteAPI", "HandlelisteAPI\HandlelisteAPI.csproj", "{18EB3AC7-F602-4A72-9593-CECEB3B51789}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandlelisteAPITests", "HandlelisteAPITests\HandlelisteAPITests.csproj", "{9661BC98-1294-4788-B74F-3F06FBE3E15C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{18EB3AC7-F602-4A72-9593-CECEB3B51789}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18EB3AC7-F602-4A72-9593-CECEB3B51789}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18EB3AC7-F602-4A72-9593-CECEB3B51789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9661BC98-1294-4788-B74F-3F06FBE3E15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9661BC98-1294-4788-B74F-3F06FBE3E15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9661BC98-1294-4788-B74F-3F06FBE3E15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9661BC98-1294-4788-B74F-3F06FBE3E15C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

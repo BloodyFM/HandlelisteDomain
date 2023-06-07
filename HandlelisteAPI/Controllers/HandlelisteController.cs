@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HandlelisteDomain;
-using HandlelisteAPI.DataLogic;
+using HandlelisteAPI.Core.DataLogic;
+using HandlelisteAPI.Core.DTO;
 
 namespace HandlelisteAPI.Controllers
 {

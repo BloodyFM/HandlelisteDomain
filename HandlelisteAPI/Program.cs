@@ -1,4 +1,4 @@
-using HandlelisteAPI.DataLogic;
+using HandlelisteAPI.Core.DataLogic;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

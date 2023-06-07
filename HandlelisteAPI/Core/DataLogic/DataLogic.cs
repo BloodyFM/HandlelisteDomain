@@ -1,6 +1,6 @@
 ﻿using HandlelisteData;
 
-namespace HandlelisteAPI.DataLogic
+namespace HandlelisteAPI.Core.DataLogic
 {
     public class DataLogic
     {
