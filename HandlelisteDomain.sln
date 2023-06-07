@@ -7,9 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandlelisteDomain", "Handle
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandlelisteData", "HandlelisteData\HandlelisteData.csproj", "{26483720-068F-4BF1-B389-E7D3AA84CAC1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingTool", "TestingTool\TestingTool.csproj", "{DEB40FC0-5EC2-46EC-A947-B2988F38683A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandlelisteAPI", "HandlelisteAPI\HandlelisteAPI.csproj", "{18EB3AC7-F602-4A72-9593-CECEB3B51789}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandlelisteAPI", "HandlelisteAPI\HandlelisteAPI.csproj", "{18EB3AC7-F602-4A72-9593-CECEB3B51789}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{26483720-068F-4BF1-B389-E7D3AA84CAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26483720-068F-4BF1-B389-E7D3AA84CAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26483720-068F-4BF1-B389-E7D3AA84CAC1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DEB40FC0-5EC2-46EC-A947-B2988F38683A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEB40FC0-5EC2-46EC-A947-B2988F38683A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEB40FC0-5EC2-46EC-A947-B2988F38683A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEB40FC0-5EC2-46EC-A947-B2988F38683A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18EB3AC7-F602-4A72-9593-CECEB3B51789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{18EB3AC7-F602-4A72-9593-CECEB3B51789}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18EB3AC7-F602-4A72-9593-CECEB3B51789}.Release|Any CPU.ActiveCfg = Release|Any CPU
