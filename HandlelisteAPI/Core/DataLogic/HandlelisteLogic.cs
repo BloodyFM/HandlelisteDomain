@@ -21,14 +21,6 @@ namespace HandlelisteAPI.Core.DataLogic
             return handleliste;
         }
 
-        public async Task<HandlelisteDTO?> GetHandlelisteByIdDTO(int id)
-        {
-            var handleliste = await _context.Handlelister.FindAsync(id);
-            if (handleliste == null)
-                return null;
-            return HandlelisteToDTO(handleliste);
-        }
-
         public async Task<List<HandlelisteDTO>> GetHandlelisterByUserIdDTO(string userId)
         {
             var handlelister = await _context.Handlelister
@@ -59,7 +51,7 @@ namespace HandlelisteAPI.Core.DataLogic
             _context.Handlelister.Remove(handleliste);
         }
 
-        private static HandlelisteDTO HandlelisteToDTO(Handleliste handleliste)
+        public HandlelisteDTO HandlelisteToDTO(Handleliste handleliste)
         {
             return new HandlelisteDTO
             {

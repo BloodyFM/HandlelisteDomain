@@ -31,11 +31,12 @@ namespace HandlelisteAPI.Controllers
         [HttpGet("/{id}")]
         public async Task<ActionResult<HandlelisteDTO>> GetHandleliste(int id)
         {
-            var handlelisteDTO = await _hl.GetHandlelisteByIdDTO(id);
-            if (handlelisteDTO == null)
+            var handleliste = await _hl.GetHandlelisteById(id);
+            if (handleliste == null)
             {
                 return NotFound();
             }
+            var handlelisteDTO = _hl.HandlelisteToDTO(handleliste);
             return handlelisteDTO;
         }
 

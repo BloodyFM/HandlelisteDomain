@@ -31,7 +31,7 @@ namespace HandlelisteAPI.Core.DataLogic
             return VareToDTO(vare);
         }
 
-        public async Task<Handleliste?> GetHandlelisteById(int handlelisteId)
+        public async Task<Handleliste?> GetHandlelisteIncludingVarerById(int handlelisteId)
         {
             return await _context.Handlelister.Include(h => h.Varer).FirstOrDefaultAsync(h => h.HandlelisteId == handlelisteId);
         }

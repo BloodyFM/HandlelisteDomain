@@ -53,7 +53,7 @@ namespace HandlelisteAPI.Controllers
         [HttpGet("Recommend/{handlelisteId}")]
         public async Task<ActionResult<VareDTO?>?> GetVareReccomendationsFromSelection(int handlelisteId)
         {
-            var currentHandleliste = await _vl.GetHandlelisteById(handlelisteId);
+            var currentHandleliste = await _vl.GetHandlelisteIncludingVarerById(handlelisteId);
             if (currentHandleliste == null)
             {
                 return NotFound();
