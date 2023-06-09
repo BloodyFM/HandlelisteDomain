@@ -49,11 +49,6 @@ namespace HandlelisteAPI.Core.DataLogic
             _context.Varer.Add(newVare);
         }
 
-        public bool VareExists(int id)
-        {
-            return (_context.Varer?.Any(v => v.VareId == id)).GetValueOrDefault();
-        }
-
         public Vare VareFromDTO(VareDTO vareDTO)
         {
             return new Vare { VareId = vareDTO.VareId, VareName = vareDTO.VareName, VareInstancer = new List<VareInstance>() };

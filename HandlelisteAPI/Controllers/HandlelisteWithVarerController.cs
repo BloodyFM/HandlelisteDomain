@@ -119,7 +119,7 @@ namespace HandlelisteAPI.Controllers
         [HttpPut("IsCollected/{id}")]
         public async Task<IActionResult> PutIsCollected(int id, int vareId, bool isCollected)
         {
-            var vareInstances = await _hwvl.FindVareInstancesByHandlelisteId(id);
+            var vareInstances = await _hwvl.GetVareInstancesByHandlelisteId(id);
             var vareInstance = new VareInstance();
 
             if (vareInstances.IsNullOrEmpty())
@@ -174,25 +174,5 @@ namespace HandlelisteAPI.Controllers
 
             return CreatedAtAction("GetHandleliste", new { id }, handleliste);
         }
-
-        // DELETE: api/HandlelisteWithVarer/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteHandleliste(int id)
-        //{
-        //    if (_hwvl.HandlelisterIsNull())
-        //    {
-        //        return Problem("Entity set 'HandlelisteContext.Handlelister'  is null.");
-        //    }
-        //    var handleliste = await _hwvl.FindHandlelisteById(id);
-        //    if (handleliste == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    _hwvl.RemoveHandleliste(handleliste);
-        //    await _hwvl.SaveChangesAsync();
-
-        //    return NoContent();
-        //}
     }
 }

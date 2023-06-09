@@ -10,6 +10,21 @@ namespace HandlelisteAPI.Core.DataLogic
             _context = context;
         }
 
+        public bool VareInstanceExists(int handlelisteId, int vareId)
+        {
+            return (_context.Vareinstance?.Any(vi => vi.HandlelisteId == handlelisteId && vi.VareId == vareId)).GetValueOrDefault();
+        }
+
+        public bool HandlelisteExists(int id)
+        {
+            return (_context.Handlelister?.Any(h => h.HandlelisteId == id)).GetValueOrDefault();
+        }
+
+        public bool VareExists(int id)
+        {
+            return (_context.Varer?.Any(v => v.VareId == id)).GetValueOrDefault();
+        }
+
         public void SaveChanges()
         {
             _context.SaveChanges();

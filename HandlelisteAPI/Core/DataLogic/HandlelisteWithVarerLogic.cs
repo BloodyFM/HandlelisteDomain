@@ -23,12 +23,7 @@ namespace HandlelisteAPI.Core.DataLogic
             return VareInstanceToDTO(vareInstance, vareInstance.Vare.VareName);
         }
 
-        public async Task<Handleliste?> FindHandlelisteById(int id)
-        {
-            return await _context.Handlelister.FindAsync(id);
-        }
-
-        public async Task<List<VareInstance>> FindVareInstancesByHandlelisteId(int handlelisteId)
+        public async Task<List<VareInstance>> GetVareInstancesByHandlelisteId(int handlelisteId)
         {
             return await _context.Vareinstance.Where(vi => vi.HandlelisteId == handlelisteId).ToListAsync();
         }
@@ -51,15 +46,6 @@ namespace HandlelisteAPI.Core.DataLogic
             _context.Entry(vareInstance).State = EntityState.Modified;
         }
 
-        public bool VareInstanceExists(int handlelisteId, int vareId)
-        {
-            return (_context.Vareinstance?.Any(vi => vi.HandlelisteId == handlelisteId && vi.VareId == vareId)).GetValueOrDefault();
-        }
-        public bool VareExists(int vareId)
-        {
-            return (_context.Varer?.Any(v => v.VareId == vareId)).GetValueOrDefault();
-        }
-
         public EntityEntry<Handleliste> AddHandleliste(Handleliste handleliste)
         {
             return _context.Handlelister.Add(handleliste);
@@ -78,11 +64,6 @@ namespace HandlelisteAPI.Core.DataLogic
         public void RemoveHandleliste(Handleliste handleliste)
         {
             _context.Handlelister.Remove(handleliste);
-        }
-
-        public bool HandlelisteExists(int id)
-        {
-            return (_context.Handlelister?.Any(e => e.HandlelisteId == id)).GetValueOrDefault();
         }
 
         public Handleliste HandlelisteWithVarerFromDTO(HandlelisteWithVarerDTO handleliste)
