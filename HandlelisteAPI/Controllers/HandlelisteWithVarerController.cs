@@ -127,13 +127,13 @@ namespace HandlelisteAPI.Controllers
                 return BadRequest();
             }
 
-            for (int i = 0; i < vareInstances.Count; i++)
+            if (vareInstances.Count > 0)
             {
-                var instance = vareInstances[i];
-                if (instance.VareId == vareId)
+                var i = vareInstances.FindIndex(vi => vi.VareId == vareId);
+                if (i >= 0)
                 {
-                    instance.IsCollected = isCollected;
-                    vareInstance = instance;
+                    vareInstances[i].IsCollected = isCollected;
+                    vareInstance = vareInstances[i];
                     _hwvl.SaveChanges();
                 }
             }

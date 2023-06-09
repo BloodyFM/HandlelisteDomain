@@ -49,11 +49,6 @@ namespace HandlelisteAPI.Controllers
                 return Problem("Entity set 'PubContext.Handlelister'  is null.");
             }
 
-            if (HttpContext.Request.Method != "GET")
-            {
-                return StatusCode(StatusCodes.Status405MethodNotAllowed);
-            }
-
             return await _hl.GetHandlelisterByUserIdDTO(userId);
         }
 
@@ -66,7 +61,7 @@ namespace HandlelisteAPI.Controllers
                 return BadRequest();
             }
 
-            var handleliste = HandlelisteFromDTO(handlelisteDTO);
+            var handleliste = _hl.HandlelisteFromDTO(handlelisteDTO);
             _hl.SetModifiedHandlelisteState(handleliste);
 
             try
@@ -96,22 +91,12 @@ namespace HandlelisteAPI.Controllers
             {
                 return Problem("Entity set 'PubContext.Handlelister'  is null.");
             }
-            var handleliste = HandlelisteFromDTO(handlelisteDTO);
+            var handleliste = _hl.HandlelisteFromDTO(handlelisteDTO);
 
             _hl.AddHandleliste(handleliste);
             await _hl.SaveChangesAsync();
 
             return CreatedAtAction("GetHandleliste", new { id = handleliste.HandlelisteId}, HandlelisteToDTO(handleliste));
-        }
-
-        private static Handleliste HandlelisteFromDTO(HandlelisteDTO handlelisteDTO)
-        {
-            return new Handleliste()
-            {
-                HandlelisteId = handlelisteDTO.HandlelisteId,
-                UserId = handlelisteDTO.UserId,
-                HandlelisteName = handlelisteDTO.HandlelisteName,
-            };
         }
 
         // DELETE: api/Handleliste/5

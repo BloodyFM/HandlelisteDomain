@@ -68,44 +68,29 @@ namespace HandlelisteAPI.Controllers
             foreach (var vare in currentHandleliste.Varer)
             {
                 var matchingHandlelister = await _vl.GetUsersHandlelisterThatContainsVareById(userId, vare.VareId);
+                // Go through each handleliste
                 foreach (var handleliste in matchingHandlelister)
+                    // Check each Vare in the Handleliste
                     foreach (var matchingVare in handleliste.Varer)
                     {
-                        //if (vare.VareId == matchingVare.VareId) continue; //redundant, next line would cover this to
-                        bool skip = false;
-                        for (int i = 0; i < currentHandleliste.Varer.Count; i++)
-                        {
-                            if (matchingVare.VareId == currentHandleliste.Varer[i].VareId) skip = true;
-                        }
-                        if (skip) continue;
-                        bool exists = false;
-                        for (var i = 0; i < vareScores.Count; i++)
-                        {
-                            if (vareScores[i].vareId == matchingVare.VareId)
-                            {
-                                vareScores[i].points++;
-                                exists = true;
-                            }
-                        }
-                        if (!exists)
+                        if (currentHandleliste.Varer.Contains(matchingVare)) continue;
+                        var i = vareScores.FindIndex(vs => vs.vareId == matchingVare.VareId);
+                        if (i >= 0)
+                            vareScores[i].points++;
+                        else
                             vareScores.Add(new VareScore(matchingVare.VareId, 1));
                     }
             }
 
             // find the highest score
-            var bestVare = new VareScore(0, 0);
+            VareScore bestVare;
             if (vareScores.Count > 0)
             {
                 bestVare = vareScores[0];
-            }
+            } else return null;
             for (var i = 1; i < vareScores.Count; i++)
             {
                 if (vareScores[i].points > bestVare.points) bestVare = vareScores[i];
-            }
-
-            if (vareScores.Count == 0)
-            {
-                return null;
             }
 
             var returnVare = await _vl.GetVareByIdDTO(bestVare.vareId);

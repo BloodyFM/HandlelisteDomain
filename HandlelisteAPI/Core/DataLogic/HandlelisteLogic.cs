@@ -52,5 +52,14 @@ namespace HandlelisteAPI.Core.DataLogic
                 HandlelisteName = handleliste.HandlelisteName,
             };
         }
+        public Handleliste HandlelisteFromDTO(HandlelisteDTO handlelisteDTO)
+        {
+            return new Handleliste()
+            {
+                HandlelisteId = handlelisteDTO.HandlelisteId,
+                UserId = handlelisteDTO.UserId,
+                HandlelisteName = handlelisteDTO.HandlelisteName,
+            };
+        }
     }
 }
