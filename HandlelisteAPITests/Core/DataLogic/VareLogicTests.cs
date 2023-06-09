@@ -11,13 +11,12 @@ public class VareLogicTests
     public VareLogicTests()
     {
         _builder = new DbContextOptionsBuilder<HandlelisteContext>();
+        _builder.UseInMemoryDatabase(Guid.NewGuid().ToString());
     }
 
     [Fact]
     public async void GetAllVarerDTOGetsAllVarer()
     {
-        _builder.UseInMemoryDatabase("GetAllVarerDTOGetsAllVarer");
-
         using var context = new HandlelisteContext(_builder.Options);
         var vareList = new List<Vare>() {
                 new Vare() {VareName = "A" },
@@ -36,8 +35,6 @@ public class VareLogicTests
     [Fact]
     public async void GetVareByIdDTOGetsVareById()
     {
-        _builder.UseInMemoryDatabase("GetVareByIdDTOGetsVareById");
-
         using var context = new HandlelisteContext(_builder.Options);
         var vareList = new List<Vare>() {
                 new Vare() {VareName = "A" },
@@ -60,8 +57,6 @@ public class VareLogicTests
     [Fact]
     public async void GetHandlelisteIncludingVarerByIdGetsHandlelisteAndAllVareInsances()
     {
-        _builder.UseInMemoryDatabase("GetHandlelisteIncludingVarerByIdGetsHandlelisteAndAllVareInsances");
-
         using var context = new HandlelisteContext(_builder.Options);
         var vareList = new List<Vare>() {
                 new Vare() {VareName = "A" },
@@ -99,8 +94,6 @@ public class VareLogicTests
     [Fact]
     public async void GetUsersHandlelisterThatContainsVareByIdGetsCorrectHandleliste()
     {
-        _builder.UseInMemoryDatabase("GetUsersHandlelisterThatContainsVareByIdGetsCorrectHandleliste");
-
         using var context = new HandlelisteContext(_builder.Options);
         string user1 = "1";
         string user2 = "2";

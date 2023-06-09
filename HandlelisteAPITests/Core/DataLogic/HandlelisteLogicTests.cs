@@ -6,18 +6,17 @@ namespace HandlelisteAPI.Core.DataLogic;
 
 public class HandlelisteLogicTests
 {
-     private readonly DbContextOptionsBuilder<HandlelisteContext> _builder;
+    private readonly DbContextOptionsBuilder<HandlelisteContext> _builder;
 
     public HandlelisteLogicTests()
     {
         _builder = new DbContextOptionsBuilder<HandlelisteContext>();   
+        _builder.UseInMemoryDatabase(Guid.NewGuid().ToString());
     }
 
     [Fact]
     public async void GetHandlelisteByIdGetsCorrectHandleliste()
     {
-        _builder.UseInMemoryDatabase("GetHandlelisteByIdGetsCorrectHandleliste");
-
         using var context = new HandlelisteContext(_builder.Options);
         var handlelisteList = new List<Handleliste>() {
             new Handleliste() { HandlelisteName = "ListA", UserId = "1"},
@@ -39,8 +38,6 @@ public class HandlelisteLogicTests
     [Fact]
     public async void GetHandlelisterByUserIdDTOReturnsCorrectNUmberOfHandlelister()
     {
-        _builder.UseInMemoryDatabase("GetHandlelisterByUserIdDTOReturnsCorrectNUmberOfHandlelister");
-
         using var context = new HandlelisteContext(_builder.Options);
         var User1 = "1";
         var User2 = "2";
@@ -66,8 +63,6 @@ public class HandlelisteLogicTests
     [Fact]
     public async void HandlelisteExistsReturnsCorrecBool()
     {
-        _builder.UseInMemoryDatabase("HandlelisteExistsReturnsCorrecBool");
-
         using var context = new HandlelisteContext(_builder.Options);
         var handleliste = new Handleliste() {
             HandlelisteName = "ListA",
